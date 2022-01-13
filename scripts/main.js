@@ -58,7 +58,6 @@ const get_UserSelectedLocation = async () => {
             const api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${user_input.value}&limit=10&appid=${api_key}`
             const res = await fetch(api_url)
             const data = await res.json()
-            console.log(data.length)
             if (data.length == 0) {
                 const result = document.createElement("li")
                 result.innerHTML = `There is no results..`
