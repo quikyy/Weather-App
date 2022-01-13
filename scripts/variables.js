@@ -1,4 +1,4 @@
-const api_key = `61bed41a6bb495305b1b21efbbd80c4d`
+const api_key = `3745a67d7481e398883544ebcdfaee54`
 mapboxgl.accessToken = `pk.eyJ1Ijoic3ppbWlkdWIiLCJhIjoiY2t4cDc5NGgyMjUwcDJycWs4aDRwdWhiYyJ9.Fe7yERGA3W4MHNHL8VCd0A`
 
 const loading = document.getElementById("loading")
