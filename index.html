@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1">
+    <title>Document</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\maps.css">
+    <link rel="stylesheet" href="css\all.min.css">
+    <link rel="stylesheet" href="css\search_bar.css">
+    <link rel="stylesheet" href="css\location_info.css">
+    <link rel="stylesheet" href="css\hourly_forecast.css">
+    <link rel="stylesheet" href="css\weekly_forecast.css">
+    <link rel="stylesheet" href="css\tiles.css">
+</head>
+
+<body> 
+    <div id="loading" class="loading">
+        <i class="fas fa-spinner"></i>
+    </div>
+    <img class="background" src="animated\Bubble-4s-1084px.svg">
+    <div class="wrapper">
+
+
+        <header data-value="search_bar" class="search_bar">
+            <input class="user_input" type="search" placeholder="Check weather for any city!"">
+
+            <button class=" search_button"><i class="fas fa-search"></i></button>
+            <ul class="results">
+            </ul>
+            <div id="alert_map" class="alert_map">
+                <button data-value="exit-map-btn" class="exit_button">Close map</button>
+            </div>
+        </header>
+
+        <div class="wrapper2">
+            <section class="searched_info">
+                <div class="city_info"></div>
+                <div class="last_update"></div>
+                <div class="upper">
+                    <div id="current_temp" class="current_temp"></div>
+                    <div class="icon_container">
+                        <img id="svg_icon" class="current_svg" src="" alt="">
+                    </div>
+                    <section class="lower">
+                        <div class="left">
+                            <span id="feels"></span>
+                            <span id="highest"></span>
+                            <span id="lowest"></span>
+
+                        </div>
+                        <div class="right">
+                            <span id="weather_type"></span>
+                            <span id="humidity"></span>
+                            <span id="pressure"></span>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section class="hourly_weather">
+                <div data-value="main" class="info_24hours">
+                    <span><i class="far fa-clock"></i> 24-hours forecast</span>
+                </div>
+                <div class="slider"></div>
+            </section>
+
+
+            <section class="daily_weather">
+                <div data-value="main" class="info_7days">
+                    <span><i class="far fa-calendar-alt"></i> 7-days forecast</span>
+                </div>
+
+        </div>
+        </section>
+
+
+        <section class="tiles">
+            <div class="tile tile_1">
+                <span class="header rise_set"><i class="fas fa-globe-europe"></i>RISE - SET</span>
+                <span class="sunrise_class"><i class="far fa-sun"></i>SUNRISE</span>
+                <span class="sunrise"></span>
+                <span><i class="far fa-moon"></i>SUNSET</span>
+                <span class="sunset"></span>
+            </div>
+
+            <div class="tile tile_2">
+                <div class="header wind_info"><i class="fas fa-wind"></i>WIND</div>
+                <span id="wind_speed"></span>
+                <div class="arrow">
+                    <p id="N">N</p>
+                    <p id="S">S</p>
+                    <p id="W">W</p>
+                    <p id="E">E</p>
+                    <i class="fas fa-long-arrow-alt-up"></i>
+                    <p id="wind_deg"></p>
+                </div>
+            </div>
+            <div class="tile tile_3">
+                <span class="header aiq_index_conatiner"><i class="fas fa-lungs"></i>Air Quality Index</span>
+                <span class="aiq_index"></span>
+                <div class="bar">
+                    <div class="dot"></div>
+                </div>
+                <span class="aiq_info"></span>
+            </div>
+        </section>
+
+
+
+        <section class="all_maps">
+        <div class="selector_container">
+            <span data-value="temp_selector" class="activeSelctor">Temperature</span>
+            <span data-value="prec_selector">Precipation</span>
+            <span data-value="clouds_selector">Clouds</span>
+        </div>
+
+        
+        <main data-value="temp_map" class="temp_map_container activeMap">
+            <div id="temp_map" class="temp_map"></div>
+            <div id="legend_temp" class="legend_temp">
+                <div class="gradient"></div>
+                <div class="numbers">
+                    <span>-40</span>
+                    <span>-30</span>
+                    <span>-20</span>
+                    <span>-10</span>
+                    <span>0 °C</span>
+                    <span>10</span>
+                    <span>20</span>
+                    <span>30</span>
+                    <span>40</span>
+                </div>
+            </div>
+        </main>
+
+        <main data-value="prec_map" class="prec_map_container">
+            <div id="prec_map" class="prec_map"></div>
+            <div id="legend_prec" class="legend_prec">Global precipation</div>
+        </main>
+
+
+        <main data-value="clouds_map" class="clouds_map_container">
+            <div id="clouds_map" class="clouds_map"></div>
+            <div id="legend_clouds" class="legend_clouds">Global cloudiness</div>
+            
+        </main>
+        </section>
+
+        <p style="opacity: 0;">.</p>
+
+    </div>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <script src="scripts\map.js"></script>
+    <script src="scripts\variables.js"></script>
+    <script src="scripts\weather_slider.js"></script>
+    <script src="scripts\search_bar.js"></script>
+    <script src="scripts\view_manager.js" defer></script>
+    <script src="scripts\clear_fields.js"></script>
+    <script type="module" src="scripts\main.js" defer></script>
+
+</body>
+
+</html>
