@@ -1,5 +1,6 @@
 const clearFields = async () => {
     return new Promise((res) => {
+        searched_info.classList.remove(searchedInfo_Off)
         slider.innerText = ""
         const li_results = document.querySelectorAll(".results li")
         li_results.forEach(elem => {

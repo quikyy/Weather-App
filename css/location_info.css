@@ -3,8 +3,12 @@
     min-height: 40vh;
     width: 95%;
     margin: 0 auto;
-    margin-bottom: 4vh;
+    margin-bottom: 5vh;
     border-radius: 10px;
+}
+
+.searchedInfo_Off{
+    opacity: 0;
 }
 
 .city_info {
@@ -101,3 +105,9 @@
     }
 }
 
+@media (max-width:320px){
+    .searched_info  {
+        margin-bottom: 10vh;
+    }
+
+}

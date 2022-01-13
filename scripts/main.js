@@ -5,7 +5,7 @@ const today_WeatherData = async (lat, lon) => {
         const data = await res.json()
         return data;
     } catch (err) {
-        alert(`Error: ${err} [hourlyWeekly]`)
+        alert(`Error: ${err} [today]`)
     }
 }
 
@@ -49,63 +49,81 @@ const get_UserSelectedLocation = async () => {
     li_results.forEach(elem => {
         elem.remove();
     })
-    try {
-        searchedLocationArray.push(user_input.value)
-        const api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${user_input.value}&limit=5&appid=${api_key}`
-        const res = await fetch(api_url)
-        const data = await res.json()
-        for (let i = 0; i < data.length; i++) {
-            const {
-                country,
-                name,
-            } = data[i]
-            const result = document.createElement("li")
-            result.dataset.lat = data[i].lat
-            result.dataset.lon = data[i].lon
-            result.dataset.name = data[i].name
-            result.innerHTML = `${name}, ${country}`
-            results.appendChild(result)
 
-            const mapClick = document.createElement("button")
-            mapClick.innerHTML = `Check on map`
-            mapClick.classList.add("click_map")
-            mapClick.dataset.value = "open-map-btn"
-            result.appendChild(mapClick)
-        }
-        
-        const result = [...document.querySelectorAll(".results li")]
-        let lenght = result.length - 1
-        const closeAll = document.createElement("button")
-        closeAll.classList.add("closeAll")
-        closeAll.innerHTML = `<i class="fas fa-arrow-up"></i>`
-        closeAll.dataset.value = "close-all"
-        result[lenght].appendChild(closeAll)
-        result.forEach(elem => {
-            elem.addEventListener("click", async function (e) {
-                if (e.target.dataset.value == "open-map-btn") {
-                    const x = e.target.parentNode.dataset.lat
-                    const y = e.target.parentNode.dataset.lon
-                    alert_map.classList.add("showMap")
-                    drawMap_Streets(y, x, alert_map, 13)
-                } else if (e.target.dataset.value == "close-all" || e.target.parentNode.dataset.value == "close-all") {
-                    const li_results = document.querySelectorAll(".results li")
-                    li_results.forEach(elem => {
-                        elem.remove();
-                    })
-                    user_input.value = ""
-                    return;
-                } else {
-                    lat_pos = e.target.dataset.lat
-                    lon_pos = e.target.dataset.lon
-                    selected_location = e.target.dataset.name
-                    await clearFields()
-                    await get_WeatherData()
+    try {
+        if (user_input.value == "") {
+            return
+        } else {
+            searched_info.classList.add(searchedInfo_Off)
+            const api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${user_input.value}&limit=10&appid=${api_key}`
+            const res = await fetch(api_url)
+            const data = await res.json()
+            console.log(data.length)
+            if (data.length == 0) {
+                const result = document.createElement("li")
+                result.innerHTML = `There is no results..`
+                results.appendChild(result)
+                user_input.value == ""
+                return
+            } else {
+
+                for (let i = 0; i < data.length; i++) {
+                    const {
+                        country,
+                        name,
+                    } = data[i]
+                    const result = document.createElement("li")
+                    result.dataset.lat = data[i].lat
+                    result.dataset.lon = data[i].lon
+                    result.dataset.name = data[i].name
+                    result.innerHTML = `${name}, ${country}`
+
+                    results.appendChild(result)
+
+                    const mapClick = document.createElement("button")
+                    mapClick.innerHTML = `Check on map`
+                    mapClick.classList.add("click_map")
+                    mapClick.dataset.value = "open-map-btn"
+                    result.appendChild(mapClick)
                 }
 
-            })
-        })
+                const result = [...document.querySelectorAll(".results li")]
+                let lenght = result.length - 1
+                const closeAll = document.createElement("button")
+                closeAll.classList.add("closeAll")
+                closeAll.id = "closeAll"
+                closeAll.innerHTML = `<i class="fas fa-arrow-up"></i>`
+                closeAll.dataset.value = "close-all"
+                result[lenght].appendChild(closeAll)
+                result.forEach(elem => {
+                    elem.addEventListener("click", async function (e) {
+                        if (e.target.dataset.value == "open-map-btn") {
+                            const x = e.target.parentNode.dataset.lat
+                            const y = e.target.parentNode.dataset.lon
+                            alert_map.classList.add("showMap")
+                            drawMap_Streets(y, x, alert_map, 13)
+                        } else if (e.target.dataset.value == "close-all" || e.target.parentNode.dataset.value == "close-all") {
+                            const li_results = document.querySelectorAll(".results li")
+                            li_results.forEach(elem => {
+                                elem.remove();
+                            })
+                            searched_info.classList.remove(searchedInfo_Off)
+                            user_input.value = ""
+                            return;
+                        } else {
+                            lat_pos = e.target.dataset.lat
+                            lon_pos = e.target.dataset.lon
+                            selected_location = e.target.dataset.name
+                            await clearFields()
+                            await get_WeatherData()
+                        }
+
+                    })
+                })
 
 
+            }
+        }
 
     } catch (err) {
         alert(`Error: ${err}`)
@@ -148,13 +166,12 @@ const get_WeatherData = async () => {
     const daily_Data = await daily_WeatherData(lat_pos, lon_pos);
     const aiq_data = await airPollution_Info(lat_pos, lon_pos)
     // top
-    if(selected_location == ""){
+    if (selected_location == "") {
         city_name.innerHTML = today_Data.name;
-    }
-    else {
+    } else {
         city_name.innerHTML = selected_location;
     }
-    
+
     lastData_update.innerHTML = `${timeSinceLastUpdate(today_Data.dt)}`;
     // left
     current_temp_real.innerHTML = tempCutter(today_Data.main.temp)
@@ -267,6 +284,7 @@ user_input.addEventListener("input", function () {
         li_results.forEach(elem => {
             elem.remove();
         })
+        searched_info.classList.remove(searchedInfo_Off)
     }
 })
 
