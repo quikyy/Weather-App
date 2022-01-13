@@ -42,6 +42,11 @@
     width: 20%;
 }
 
+
+.daily_cointainer .daily_icon {
+    width: 15%;
+}
+
 .daily_cointainer .daily_temp {
     width: 30%;
     text-align: right;

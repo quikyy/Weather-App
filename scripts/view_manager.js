@@ -96,36 +96,36 @@ function hourlyTimeUTC(dt, timezone) {
 function hourlyWeatherIcon(weather_id, xyz) {
     if (xyz > 5 && xyz < 18) {
         if (weather_id > 800) {
-            return `animated/cloudy-day-1.svg`
+            return `static/cloudy-day-1.svg`
         } else if (weather_id == 800) {
-            return `animated/day.svg`
+            return `static/day.svg`
         } else if (weather_id > 700 && weather_id < 782) {
-            return `animated/cloudy.svg`
+            return `static/cloudy.svg`
         } else if (weather_id > 599 && weather_id < 623) {
-            return `animated/snowy-6.svg`
+            return `static/snowy-6.svg`
         } else if (weather_id > 299 && weather_id < 501) {
-            return `animated/rainy-5.svg`
+            return `static/rainy-5.svg`
         } else if (weather_id => 502 && weather_id < 532) {
-            return `animated/rainy-7.svg`
+            return `static/rainy-7.svg`
         } else if (weather_id > 199 && weather_id < 233) {
-            return `animated/thunder.svg`
+            return `static/thunder.svg`
         }
 
     } else {
         if (weather_id > 800) {
-            return `animated/cloudy-night-3.svg`
+            return `static/cloudy-night-3.svg`
         } else if (weather_id == 800) {
-            return `animated/night.svg`
+            return `static/night.svg`
         } else if (weather_id > 700 && weather_id < 782) {
-            return `animated/cloudy.svg`
+            return `static/cloudy.svg`
         } else if (weather_id > 599 && weather_id < 623) {
-            return `animated/snowy-6.svg`
+            return `static/snowy-6.svg`
         } else if (weather_id > 299 && weather_id < 501) {
-            return `animated/rainy-5.svg`
+            return `static/rainy-5.svg`
         } else if (weather_id => 502 && weather_id < 532) {
-            return `animated/rainy-7.svg`
+            return `static/rainy-7.svg`
         } else if (weather_id > 199 && weather_id < 233) {
-            return `animated/thunder.svg`
+            return `static/thunder.svg`
         }
     }
 }

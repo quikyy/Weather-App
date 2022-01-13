@@ -67,8 +67,9 @@
     font-size: 1.1rem
 }
 
-.daily_cointainer img {
-    width: 90%;
+.hourly_cointainer img {
+    margin: 0 auto;
+    width: 100%;
 }
 
 .pop {
