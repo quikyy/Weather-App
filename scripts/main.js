@@ -45,6 +45,7 @@ const airPollution_Info = async (lat, lon) => {
 
 
 const get_UserSelectedLocation = async () => {
+    isLoading()
     const li_results = document.querySelectorAll(".results li")
     li_results.forEach(elem => {
         elem.remove();
@@ -58,6 +59,7 @@ const get_UserSelectedLocation = async () => {
             const api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${user_input.value}&limit=10&appid=${api_key}`
             const res = await fetch(api_url)
             const data = await res.json()
+            isLoaded()
             if (data.length == 0) {
                 const result = document.createElement("li")
                 result.innerHTML = `There is no results..`

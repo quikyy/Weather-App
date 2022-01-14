@@ -1,0 +1,20 @@
+{
+  "name": "project-02-weather-api",
+  "version": "1.0.0",
+  "description": "The purpose of the application is to create an anpp that will monitor the weather in the user's current location and around the world.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quikyy/project-02-weather-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quikyy/project-02-weather-api/issues"
+  },
+  "homepage": "https://github.com/quikyy/project-02-weather-api#readme"
+}
