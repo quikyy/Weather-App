@@ -34,7 +34,7 @@ const daily_WeatherData = async (lat, lon) => {
 
 const airPollution_Info = async (lat, lon) => {
     try {
-        const api_url2 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=0${lat}&lon=${lon}&appid=${api_key}`
+        const api_url2 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`
         const res = await fetch(api_url2)
         const data = await res.json()
         return data;
