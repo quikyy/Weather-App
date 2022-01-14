@@ -1,5 +1,5 @@
-
-
+const dayIcon = 7;
+const nightIcon = 17;
 function timeSinceLastUpdate(value) {
     let actualDate = new Date();
     actualDate = Math.floor(actualDate.getTime() / 1000);
@@ -27,7 +27,7 @@ function weatherIcon(weather_id, timezone) {
             date = date % 24
         }
     }
-    if (date > 5 && date < 18) {
+    if (date > dayIcon && date < nightIcon) {
         if (weather_id > 800) {
             return `animated/cloudy-day-1.svg`
         } else if (weather_id == 800) {
@@ -94,7 +94,7 @@ function hourlyTimeUTC(dt, timezone) {
     }
 }
 function hourlyWeatherIcon(weather_id, xyz) {
-    if (xyz > 5 && xyz < 18) {
+    if (xyz > dayIcon && xyz < nightIcon) {
         if (weather_id > 800) {
             return `static/cloudy-day-1.svg`
         } else if (weather_id == 800) {
