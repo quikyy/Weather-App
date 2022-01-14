@@ -26,7 +26,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     pointer-events: none;
-    gap: 20px;
 }
 
 
@@ -83,16 +82,6 @@
 
 
 @media (max-width:320px){
-    .hourly_weather {
-        height: 35vh;
-    }
-
-    .slider {
-        top: 2vh;
-    }
-}
-
-@media (max-width:375px){
     .hourly_weather {
         height: 35vh;
     }

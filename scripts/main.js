@@ -176,7 +176,7 @@ const get_WeatherData = async () => {
     lastData_update.innerHTML = `${timeSinceLastUpdate(today_Data.dt)}`;
     // left
     current_temp_real.innerHTML = tempCutter(today_Data.main.temp)
-    document.title = `Weather: ${city_name.innerText}, ${current_temp_real.innerText}`
+    document.title = `${city_name.innerText}, ${current_temp_real.innerText}`
     current_temp_feels.innerHTML = `Feels like: ${tempCutter(today_Data.main.feels_like)}`
     highest_temp.innerHTML = `Highest: ${tempCutter(today_Data.main.temp_max)}`
     lowest_temp.innerHTML = `Lowest: ${tempCutter(today_Data.main.temp_min)}`
