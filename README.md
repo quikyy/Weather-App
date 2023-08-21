@@ -11,3 +11,5 @@ The app also provides three fully interactive worldwide maps with below informat
 - temperature
 - precipitation
 - cloudiness
+
+## Please note that only the mobile view has been prepared.
