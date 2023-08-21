@@ -1,4 +1,4 @@
-#Weather-App 
+# Weather-App 
 ## One of my initial projects. Done back then in 2021. 
 ### It gave me a lot of pleasure and I learned a lot of new and exciting things while creating it. It's not perfect, but I'd like to keep it on GitHub as it is :)
 
