@@ -56,7 +56,7 @@ The purpose of the application is to create an app that will monitor the weather
 - Temperature
 - Precipitation
 - Cloudiness
-<br> <be>
+<br> <br>
 ![map](https://github.com/quikyy/Weather-App/assets/93215074/d22f6300-7bd8-444c-84a4-3a66d49a61b1)
 
 #### Additional info
