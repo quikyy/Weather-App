@@ -1,7 +1,6 @@
 # Weather-App 
 
 The purpose of the application is to create an app that will monitor the weather, precipitation, cloudiness, and some other weather data in the user's current location and around the world. <br> <br>
-`One of my initial projects. Done back then in 2021. It gave me a lot of pleasure and I learned a lot of new and exciting things while creating it. May not be perfect, but I'd like to keep it on GitHub as it is :)`
 
 ## Preview
 ![whole](https://github.com/quikyy/Weather-App/assets/93215074/a2532ca4-ee15-4c87-bc85-bdc5804b0fb8)
